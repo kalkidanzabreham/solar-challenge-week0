@@ -184,6 +184,17 @@ streamlit run main.py
 
 Open the link displayed in your terminal (usually http://localhost:8501) in your browser.
 
+## 📂 Data Manifest
+
+| File Name | Description | Location |
+|------------|-------------|-----------|
+| `benin_clean.csv` | Cleaned and processed solar dataset for Benin. | `data/cleaned/benin_clean.csv` |
+| `sierra_leone_clean.csv` | Cleaned and processed solar dataset for Sierra Leone. | `data/cleaned/sierra_leone_clean.csv` |
+| `togo_clean.csv` | Cleaned and processed solar dataset for Togo. | `data/cleaned/togo_clean.csv` |
+| `compare_countries.ipynb` | Cross-country comparison analysis and visualizations. | `notebooks/compare_countries.ipynb` |
+| `dashboard/` | Streamlit app directory for interactive data visualization. | `app/` |
+
+
 
 ## 🤝 Contributing
 
