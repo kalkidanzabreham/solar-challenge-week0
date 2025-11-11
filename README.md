@@ -34,29 +34,30 @@ The project supports **MoonLight Energy Solutions** in identifying high-potentia
 solar-challenge-week0/
 │
 ├── .github/
-│ └── workflows/
-│ └── ci.yml
+│   └── workflows/
+│       └── ci.yml
 │
-├── data/
-│ ├── benin_clean.csv
-│ ├── sierra_leone_clean.csv
-│ └── togo_clean.csv
+├── data
+|   └── cleaned/
+│       ├── benin_clean.csv
+│       ├── sierra_leone_clean.csv
+│       └── togo_clean.csv
 │
 ├── notebooks/
-│ ├── benin_eda.ipynb
-│ ├── sierra_leone_eda.ipynb
-│ └── togo_eda.ipynb
+│   ├── benin_eda.ipynb
+│   ├── sierra_leone_eda.ipynb
+│   └── togo_eda.ipynb
 │
 ├── src/
-│ └── utils/
-│ ├── data_cleaning.py
-│ └── visualization.py
+│   ├── data_loader.py
+│   ├── data_cleaning.py
+│   └── eda_visuals.py
 │
 ├── scripts/
-│ └── run_eda.py
+│   └── run_eda.py
 │
 ├── tests/
-│ └── test_cleaning.py
+│   └── test_cleaning.py
 │
 ├── requirements.txt
 ├── .gitignore
@@ -73,17 +74,25 @@ git clone https://github.com/kalkidanzabreham/solar-challenge-week0.git
 cd solar-challenge-week0
 ```
 
-# Create virtual environment
+## Create virtual environment
 ```bash
 python -m venv venv
 source venv/bin/activate   # For Linux/Mac
 venv\Scripts\activate      # For Windows
 ```
-# Install dependencies
+## Install dependencies
 ```bash
 pip install -r requirements.txt
 To verify the setup, ensure the GitHub Actions workflow (.github/workflows/ci.yml) runs successfully upon each commit.
 ```
+
+## 🧪 Reproducing the Cleaning Pipeline
+Run the following to clean and export datasets automatically:
+
+```bash
+python scripts/run_eda.py
+```
+
 ## 📊 Data Summary & Key Insights
 | Metric | Benin | Sierra Leone | Togo |
 |--------|--------|---------------|-------|
@@ -98,8 +107,37 @@ To verify the setup, ensure the GitHub Actions workflow (.github/workflows/ci.ym
 - Sierra Leone has lower irradiance, influenced by humidity.  
 - Togo’s strong cleaning effect suggests high maintenance sensitivity.
 
+ ## 🧩 Code Modularity & Documentation
+
+-The project follows a modular structure for better reusability and maintenance.
+-Module-level docstrings are included across src/ scripts to explain functionality.
+-Notebooks now import reusable functions from:
+```bash
+from src.data_loader import load_data
+from src.data_cleaning import clean_data
+from src.eda_visuals import plot_correlation_heatmap
+```
+
+## 🤝 Contributing
+
+Contributions are welcome!
+If you’d like to improve or extend this project:
+
+ Contributing
+1. Clone the repo and create a feature branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Run tests before committing:
+   ```bash
+   pytest
+   ```
+4. Push your branch and open a Pull Request with a clear description of your changes.
+
 ## 🧾 References
 - KIAM 10 Academy – Week 0 Challenge (2025)
 - MoonLight Energy Solutions – Business Objective Document
 - Solar Radiation Data – Aggregated from NOAA and Regional Measurement Systems
+
+  
 
