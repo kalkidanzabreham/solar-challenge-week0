@@ -2,7 +2,7 @@
 from pathlib import Path
 import pandas as pd
 
-DATA_DIR = Path("data/cleaned")
+DATA_DIR = Path("../data/cleaned")
 
 def load_country_csvs(file_map=None):
     """
