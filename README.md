@@ -27,6 +27,7 @@ The project supports **MoonLight Energy Solutions** in identifying high-potentia
    - Evaluate cleaning effects on module performance.
    - Summarize comparative insights across all regions.
 
+
 ---
 
 ## 🏗️ Repository Structure
@@ -38,23 +39,31 @@ solar-challenge-week0/
 │       └── ci.yml
 │
 ├── data
-|   └── cleaned/
+│   └── cleaned/
 │       ├── benin_clean.csv
 │       ├── sierra_leone_clean.csv
 │       └── togo_clean.csv
 │
 ├── notebooks/
 │   ├── benin_eda.ipynb
-│   ├── sierra_leone_eda.ipynb
-│   └── togo_eda.ipynb
+│   ├── sieraleone_eda.ipynb
+│   ├── togo_eda.ipynb
+│   └── compare_countries.ipynb
 │
 ├── src/
 │   ├── data_loader.py
 │   ├── data_cleaning.py
 │   └── eda_visuals.py
 │
+├── app/
+│   ├── __init__.py
+│   ├── dashboard_screenshots
+│   ├── main.py
+│   └── utils.py
+│
 ├── scripts/
-│   └── run_eda.py
+│   ├── run_eda.py
+│   └── README.md
 │
 ├── tests/
 │   └── test_cleaning.py
@@ -62,6 +71,7 @@ solar-challenge-week0/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+
 ```
 ---
 
@@ -117,6 +127,63 @@ from src.data_loader import load_data
 from src.data_cleaning import clean_data
 from src.eda_visuals import plot_correlation_heatmap
 ```
+
+3. Task 3 – Cross-Country Comparison
+
+This stage focuses on comparing solar potential across Benin, Sierra Leone, and Togo using cleaned datasets.
+The analysis highlights key metrics — GHI (Global Horizontal Irradiance), DNI (Direct Normal Irradiance), and DHI (Diffuse Horizontal Irradiance) — to determine which country demonstrates the highest potential for photovoltaic (PV) deployment.
+
+🔍 Objectives
+   - Merge and compare cleaned datasets from all three countries.
+   - Compute and visualize summary statistics (mean, median, standard deviation).
+   - Conduct statistical significance testing using the Kruskal–Wallis test.
+   - Identify top-performing countries and discuss variability and potential solar performance risks.
+
+### 📊 Outputs
+
+| **Visualization** | **Description** |
+|--------------------|-----------------|
+| **Boxplots** | Side-by-side comparison of GHI, DNI, and DHI across countries. |
+| **Summary Table** | Displays mean, median, and standard deviation of irradiance metrics for each country. |
+| **Bar Chart** | Ranks countries by their average GHI to highlight solar potential. |
+| **Statistical Test** | Kruskal–Wallis p-value used to determine whether differences between countries are statistically significant. |
+
+## 💻 Streamlit Dashboard
+
+An interactive dashboard was developed using Streamlit to visualize and explore the dataset dynamically.
+It enables users to compare solar irradiance metrics across countries and interactively adjust visualizations.
+
+🌐 Features
+   - Country selection via sidebar widgets
+
+   - Interactive boxplots and bar charts
+
+   - Real-time data summary and ranking table
+
+   - Clean and minimal UI design
+
+▶️ Run the Streamlit Dashboard Locally
+
+Activate your environment
+```bash
+conda activate solar_env
+```
+or
+```bash
+venv/Script/activate
+```
+Navigate to the app directory
+```bash
+cd app
+```
+
+Run Streamlit
+```bash
+streamlit run main.py
+```
+
+Open the link displayed in your terminal (usually http://localhost:8501) in your browser.
+
 
 ## 🤝 Contributing
 
